@@ -2,13 +2,15 @@
 import * as React from 'react'
 import {Link} from 'gatsby'
 import Layout from '../components/layout'
-// Stap 2: definieer je component
-const IndexPage = () => {
+
+// Step 2: Definieer je component
+const AboutPage = () => {
   return (
-    <Layout pageTitle="Welcome to Chez Chat">
-      <p>Lorem ipsum</p>
+    <Layout pageTitle="Heyhoi">
+        <p> Chez Chat was founded in ...</p>
     </Layout>
   )
 }
+
 // Stap 3: Exporteer je component
-export default IndexPage
+export default AboutPage
