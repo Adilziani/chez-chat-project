@@ -1,14 +1,19 @@
-// Stap 1: Importeer React
 import * as React from 'react'
-import {Link} from 'gatsby'
 import Layout from '../components/layout'
-// Stap 2: definieer je component
+import { StaticImage } from 'gatsby-plugin-image'
+
 const IndexPage = () => {
   return (
-    <Layout pageTitle="Welcome to Chez Chat">
+    <main>
+      <Layout pageTitle="Welcome to Inghelbrecht Agency!">
       <p>Lorem ipsum</p>
-    </Layout>
+      <StaticImage
+        alt="randomized unsplash image!"
+        src="../images/kitten-arrangement.PNG"
+      />
+      </Layout>
+    </main>
   )
 }
-// Stap 3: Exporteer je component
+
 export default IndexPage
