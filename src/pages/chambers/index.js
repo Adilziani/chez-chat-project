@@ -2,13 +2,16 @@ import * as React from 'react'
 import {gatsby} from 'gatsby'
 import { Link } from 'gatsby'
 import { graphql } from 'gatsby'
-import Layout from '../components/layout'
+import Layout from '../../components/layout'
 const ChambersPage = ({data: {allWpChamber: {edges}}}) => {
   return (
     <Layout pageTitle="Chambers of Chez Chat!">
       {edges.map((item) => {
         const chamber = item.node.chamberMeta;
-        return <p key={item.node.id}>{chamber.description}</p>
+        const slug = item.node.slug;
+        return <Link to={`/chambers/${slug}`}>
+        <p key={item.node.id}>{chamber.chambername}</p>
+        </Link> 
       })}
     </Layout>
   )
@@ -16,18 +19,21 @@ const ChambersPage = ({data: {allWpChamber: {edges}}}) => {
 
 
 export const query = graphql `
-query {
+query  {
   allWpChamber {
     edges {
       node {
-        id
         chamberMeta {
-          number
+          chambername
           description
+          extras
         }
+        id
+        slug
       }
     }
   }
 }
+
 `
 export default ChambersPage
