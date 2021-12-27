@@ -1,11 +1,19 @@
 import * as React from 'react'
-import Layout from '../../components/layout'
 import { graphql } from 'gatsby'
+import { GatsbyImage, getImage} from 'gatsby-plugin-image'
+import Layout from '../../components/layout'
 
-const ChamberPage = ({data: {wpChamber: {chamberMeta: chamber}}}) => {
+
+const ChamberPage = ({
+  data: {
+    wpChamber: {chamberMeta: chamber},
+  },
+}) => {
+  const image = getImage(chamber.image.localFile)
   return (
     <Layout pageTitle="Kamers Template">
       <div>
+        <GatsbyImage image={image} alt={chamber.image.altText} />
         <h1>{chamber.chambername}</h1>
         <div dangerouslySetInnerHTML={{__html: chamber.description}} /> 
         <p>Eetplaatsen: {chamber.dinnerplaces}</p>
@@ -21,7 +29,7 @@ const ChamberPage = ({data: {wpChamber: {chamberMeta: chamber}}}) => {
 }
 
 export const query = graphql`
-query ($id: String) {
+query MyQuery($id: String) {
   wpChamber(id: {eq: $id}) {
     chamberMeta {
       chambername
@@ -33,9 +41,18 @@ query ($id: String) {
       roomspace
       scratchmarks
       toys
+      image {
+        localFile {
+          childImageSharp {
+            gatsbyImageData(placeholder: BLURRED)
+          }
+        }
+        altText
+      }
     }
   }
 }
+
 
 `
 
