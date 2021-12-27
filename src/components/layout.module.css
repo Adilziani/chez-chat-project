@@ -63,5 +63,31 @@
   }
   
   .nav-link-text:hover {
-    color: #37ba83;
+    color: salmon;
+  }
+  .site-title {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 90px;
+    flex-shrink: 0;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-right: auto;
+  }
+  
+  .site-title::after {
+    content:'.';
+    position: absolute;
+    right: -5px;
+    bottom: 35px;
+    font-size: 2rem;
+    font-family: serif;
+    color: salmon;
+    margin-right: auto;
+  }
+  
+  .nav-link-item {
+    padding-right: 2rem;
   }
