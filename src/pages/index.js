@@ -12,7 +12,7 @@ import {
   section, 
   subtitle,
   chambers,
-} from "../page.module.css"
+} from "../../src/page.module.css"
 import Chamber from '../components/chamber'
 
 const IndexPage = ({
