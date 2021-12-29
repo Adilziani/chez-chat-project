@@ -8,7 +8,8 @@ import {
   section,
   subtitle,
   chambers,
-  description } from "../../../src/page.module.css"
+  description 
+} from "../../../src/page.module.css"
 const ChambersPage = ({
   data: {
     allWpChamber: {edges: chamberInfo},
